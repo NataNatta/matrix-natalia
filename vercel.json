@@ -1,16 +1,13 @@
 {
-  "framework": "static",
-  "builds": [
-    { "src": "index.html", "use": "@vercel/static" }
-  ]
-}
-{
+  "version": 2,
   "public": true,
-  "framework": "static",
   "builds": [
-    { "src": "public/index.html", "use": "@vercel/static" }
+    {
+      "src": "test.html",
+      "use": "@vercel/static"
+    }
   ],
   "routes": [
-    { "src": "/", "dest": "public/index.html" }
+    { "src": "/(.*)", "dest": "/test.html" }
   ]
 }
