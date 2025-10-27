@@ -4,3 +4,13 @@
     { "src": "index.html", "use": "@vercel/static" }
   ]
 }
+{
+  "public": true,
+  "framework": "static",
+  "builds": [
+    { "src": "public/index.html", "use": "@vercel/static" }
+  ],
+  "routes": [
+    { "src": "/", "dest": "public/index.html" }
+  ]
+}
