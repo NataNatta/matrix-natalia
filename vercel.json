@@ -3,7 +3,7 @@
   "public": true,
   "builds": [
     {
-      "src": "test.html",
+      "src": "index.html",
       "use": "@vercel/static"
     }
   ],
