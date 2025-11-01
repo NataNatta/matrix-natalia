@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 
-function App() {
+function Home() {
   const [birthdate, setBirthdate] = useState('');
   const [energies, setEnergies] = useState([]);
 
@@ -79,6 +80,25 @@ function App() {
         </div>
       )}
     </div>
+  );
+}
+
+function About() {
+  return <h2>Про нас</h2>;
+}
+
+function App() {
+  return (
+    <BrowserRouter>
+      <nav style={{ padding: '10px', backgroundColor: '#eee' }}>
+        <Link to="/" style={{ marginRight: '10px' }}>Головна</Link>
+        <Link to="/about">Про нас</Link>
+      </nav>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
