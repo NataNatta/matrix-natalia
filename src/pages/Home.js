@@ -14,3 +14,38 @@ function Home() {
 }
 
 export default Home;
+// src/pages/Home.js
+import React, { useState } from 'react';
+
+function Home() {
+  const [birthDate, setBirthDate] = useState('');
+
+  const handleChange = (e) => {
+    setBirthDate(e.target.value);
+  };
+
+  const handleSubmit = () => {
+    alert(`Обрана дата народження: ${birthDate}`);
+    // Тут можна додати логіку розрахунку енергій
+  };
+
+  return (
+    <div style={{ padding: '2rem' }}>
+      <h1>Введи свою дату народження</h1>
+      <input
+        type="date"
+        value={birthDate}
+        onChange={handleChange}
+        style={{ fontSize: '1rem', padding: '0.5rem' }}
+      />
+      <button
+        onClick={handleSubmit}
+        style={{ marginLeft: '1rem', padding: '0.5rem 1rem', fontSize: '1rem' }}
+      >
+        Розрахувати
+      </button>
+    </div>
+  );
+}
+
+export default Home;
