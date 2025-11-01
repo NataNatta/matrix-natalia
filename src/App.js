@@ -36,7 +36,7 @@ function App() {
     const sum = digits.reduce((acc, val) => acc + val, 0);
 
     const baseEnergy = sum % 22 || 22;
-    const secondEnergy = (sum + digits[0]) % 22 || 22;
+    const secondEnergy = (sum + (digits[0] || 0)) % 22 || 22;
 
     setEnergies([baseEnergy, secondEnergy]);
   };
@@ -44,9 +44,11 @@ function App() {
   let day = '', month = '', year = '';
   if (birthdate) {
     const parts = birthdate.split('-');
-    year = parts[0];
-    month = parts[1];
-    day = parts[2];
+    if (parts.length === 3) {
+      year = parts[0];
+      month = parts[1];
+      day = parts[2];
+    }
   }
 
   return (
