@@ -1,43 +1,10 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Тест аркану</title>
-  <meta charset="UTF-8" />
-  <style>
-    body { font-family: sans-serif; padding: 20px; }
-    input, button { font-size: 1em; margin-top: 10px; }
-    #result { margin-top: 20px; font-size: 1.2em; }
-  </style>
-</head>
-<body>
-  <h2>Введи дату народження</h2>
-  <input type="date" id="birthdate" />
-  <button onclick="showArchetype()">Показати аркан</button>
-
-  <div id="result"></div>
-
-  <script>
-    const dayToArchetype = {
-      1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8, 9: 9, 10: 10,
-      11: 11, 12: 12, 13: 13, 14: 14, 15: 15, 16: 16, 17: 17, 18: 18,
-      19: 19, 20: 20, 21: 21, 22: 22,
-      23: 5, 24: 6, 25: 7, 26: 8, 27: 9, 28: 10, 29: 11, 30: 12, 31: 13
-    };
-
-    function getArchetypeFromDay(day) {
-      return dayToArchetype[day] || "Невідома дата";
-    }
-
-    function showArchetype() {
-      const input = document.getElementById("birthdate").value;
-      if (!input) return;
-
-      const [year, month, day] = input.split("-").map(Number);
-      const archetype = getArchetypeFromDay(day);
-
-      document.getElementById("result").innerText =
-        `Для дати ${day}.${month}.${year} → аркан ${archetype}`;
-    }
-  </script>
-</body>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Матриця Долі</title>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
 </html>
