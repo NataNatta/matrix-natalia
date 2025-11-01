@@ -1,42 +1,47 @@
 import React, { useState } from 'react';
 
 function App() {
-  const [birthdate, setBirthdate] = useState('');
-  const [result, setResult] = useState('');
+  const [birthday, setBirthday] = useState('');
+  const [zodiac, setZodiac] = useState('');
 
-  const dayToArchetype = {
-    1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8, 9: 9, 10: 10,
-    11: 11, 12: 12, 13: 13, 14: 14, 15: 15, 16: 16, 17: 17, 18: 18,
-    19: 19, 20: 20, 21: 21, 22: 22,
-    23: 5, 24: 6, 25: 7, 26: 8, 27: 9, 28: 10, 29: 11, 30: 12, 31: 13
+  const getZodiac = (day, month) => {
+    if ((month === 1 && day >= 20) || (month === 2 && day <= 18)) return 'Водолій';
+    if ((month === 2 && day >= 19) || (month === 3 && day <= 20)) return 'Риби';
+    if ((month === 3 && day >= 21) || (month === 4 && day <= 19)) return 'Овен';
+    if ((month === 4 && day >= 20) || (month === 5 && day <= 20)) return 'Телець';
+    if ((month === 5 && day >= 21) || (month === 6 && day <= 20)) return 'Близнюки';
+    if ((month === 6 && day >= 21) || (month === 7 && day <= 22)) return 'Рак';
+    if ((month === 7 && day >= 23) || (month === 8 && day <= 22)) return 'Лев';
+    if ((month === 8 && day >= 23) || (month === 9 && day <= 22)) return 'Діва';
+    if ((month === 9 && day >= 23) || (month === 10 && day <= 22)) return 'Терези';
+    if ((month === 10 && day >= 23) || (month === 11 && day <= 21)) return 'Скорпіон';
+    if ((month === 11 && day >= 22) || (month === 12 && day <= 21)) return 'Стрілець';
+    if ((month === 12 && day >= 22) || (month === 1 && day <= 19)) return 'Козоріг';
+    return 'Невідомо';
   };
 
-  function getArchetypeFromDay(day) {
-    return dayToArchetype[day] || "Невідома дата";
-  }
-
-  function showArchetype() {
-    if (!birthdate) return;
-    const [year, month, day] = birthdate.split("-").map(Number);
-    const archetype = getArchetypeFromDay(day);
-    setResult(`Для дати ${day}.${month}.${year} → аркан ${archetype}`);
-  }
+  const handleClick = () => {
+    if (!birthday) return;
+    const [year, month, day] = birthday.split('-').map(Number);
+    const sign = getZodiac(day, month);
+    setZodiac(`Для дати ${day}.${month}.${year} → знак зодіаку: ${sign}`);
+  };
 
   return (
     <div style={{ fontFamily: 'sans-serif', padding: '20px' }}>
       <h2>Введи дату народження</h2>
       <input
         type="date"
-        value={birthdate}
-        onChange={(e) => setBirthdate(e.target.value)}
+        value={birthday}
+        onChange={(e) => setBirthday(e.target.value)}
         style={{ fontSize: '1em', marginTop: '10px' }}
       />
       <br />
-      <button onClick={showArchetype} style={{ fontSize: '1em', marginTop: '10px' }}>
-        Показати аркан
+      <button onClick={handleClick} style={{ fontSize: '1em', marginTop: '10px' }}>
+        Показати знак зодіаку
       </button>
-      <div id="result" style={{ marginTop: '20px', fontSize: '1.2em' }}>
-        {result}
+      <div style={{ marginTop: '20px', fontSize: '1.2em' }}>
+        {zodiac}
       </div>
     </div>
   );
