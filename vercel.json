@@ -1,5 +1,4 @@
 {
-  "rootDirectory": "matrix-natalia",
   "buildCommand": "npm run build",
   "outputDirectory": "dist"
 }
