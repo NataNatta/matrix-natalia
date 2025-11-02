@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import Home from './pages/Home';
-import matrix from './pages/matrix';
+import Matrix from './pages/Matrix.tsx';
 import Energy from './pages/Energy';
 
 function App() {
