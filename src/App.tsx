@@ -1,22 +1,21 @@
-import React from 'react';
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
-import Home from './pages/Home';
-import Matrix from './pages/matrix';
-import Energy from './pages/Energy';
+import React from "react";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import Home from "./pages/home";
+import Matrix from "./pages/matrix";
+import Energy from "./pages/energy";
 
 function App() {
   return (
     <BrowserRouter>
       <nav>
-        <Link to="/">Головна</Link>
-        <Link to="/matrix">Матриця</Link>
-        <Link to="/energy/5">Енергія 5</Link>
+        <Link to="/matrix">Matrix</Link>
+        <Link to="/energy">Energy</Link>
+        <Link to="/">Home</Link>
       </nav>
-
       <Routes>
-        <Route path="/" element={<Home />} />
         <Route path="/matrix" element={<Matrix />} />
-        <Route path="/energy/:id" element={<Energy />} />
+        <Route path="/energy" element={<Energy />} />
+        <Route path="/" element={<Home />} />
       </Routes>
     </BrowserRouter>
   );
