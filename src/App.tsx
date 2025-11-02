@@ -1,21 +1,17 @@
-import React from "react";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-import Home from "./pages/home";
-import Matrix from "./pages/matrix";
-import Energy from "./pages/energy";
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import Matrix from './pages/matrix';
+import Home from './pages/home';
 
 function App() {
   return (
     <BrowserRouter>
       <nav>
-        <Link to="/matrix">Matrix</Link>
-        <Link to="/energy">Energy</Link>
         <Link to="/">Home</Link>
+        <Link to="/matrix">Matrix</Link>
       </nav>
       <Routes>
-        <Route path="/matrix" element={<Matrix />} />
-        <Route path="/energy" element={<Energy />} />
         <Route path="/" element={<Home />} />
+        <Route path="/matrix" element={<Matrix />} />
       </Routes>
     </BrowserRouter>
   );
