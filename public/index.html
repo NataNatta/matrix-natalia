@@ -1,1 +1,10 @@
-<!DOCTYPE html><html lang="uk"><head><meta charset="UTF-8"><title>Матриця Долі</title><meta name="viewport" content="width=device-width,initial-scale=1"><style>body{font-family:sans-serif;background:#f9f9f9;padding:20px;text-align:center}input,button{padding:10px;font-size:16px;margin:10px}li{background:#fff;margin:5px;padding:10px;border-radius:6px;box-shadow:0 0 5px rgba(0,0,0,0.1)}</style></head><body><h1>🔮 Матриця Долі</h1><p>Введи дату народження:</p><input type="date" id="dob"><br><button id="calc">Розрахувати</button><div id="result"></div><script src="https://telegram.org/js/telegram-web-app.js"></script><script>const tg=window.Telegram.WebApp;tg.expand();function calculateMatrix(date){const digits=date.replace(/\D/g,'').split('').map(Number);const matrix={};for(let i=1;i<=9;i++){matrix[i]={count:0,meaning:''}}digits.forEach(d=>{if(d>=1&&d<=9){matrix[d].count++}});const meanings={1:'Сила волі',2:'Емоції',3:'Інтелект',4:'Здоров’я',5:'Інтуїція',6:'Працьовитість',7:'Удача',8:'Обов’язок',9:'Талант'};for(let i=1;i<=9;i++){matrix[i].meaning=meanings[i]}return matrix}document.getElementById("calc").addEventListener("click",()=>{const date=document.getElementById("dob").value;if(!date)return alert("Оберіть дату");const result=calculateMatrix(date);let output="<h3>Результат:</h3><ul>";for(let i=1;i<=9;i++){output+=`<li><strong>${i}</strong>: ${result[i].count} — ${result[i].meaning}</li>`}output+="</ul>";document.getElementById("result").innerHTML=output;tg.sendData(JSON.stringify({date,result}))});</script></body></html>
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Матриця Долі</title>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
